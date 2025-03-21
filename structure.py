@@ -2,6 +2,8 @@ import argparse
 import os
 from dotenv import load_dotenv
 from griptape.configs import Defaults
+from griptape.structures import Pipeline
+from griptape.tasks import AssistantTask
 from griptape.drivers.memory.conversation.griptape_cloud import GriptapeCloudConversationMemoryDriver
 from griptape.drivers.ruleset.griptape_cloud import GriptapeCloudRulesetDriver
 from griptape.drivers.vector.griptape_cloud import GriptapeCloudVectorStoreDriver
