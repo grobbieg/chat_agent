@@ -72,9 +72,9 @@ if __name__ == "__main__":
                 assistant_driver=GriptapeCloudAssistantDriver(
                     assistant_id=os.environ["GT_CLOUD_ASSISTANT_ID"],
                     api_key=os.environ["GT_CLOUD_API_KEY"],
+                    stream=False,
                 ),
-                stream=False,
-            )
+            ),
         ]
     )
 
