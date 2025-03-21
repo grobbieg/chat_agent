@@ -64,13 +64,17 @@ if __name__ == "__main__":
         thread_id=thread_id,
     )
 
-    agent = Agent(
-        prompt_driver=GriptapeCloudAssistantDriver(
-            assistant_id=os.environ["GT_CLOUD_ASSISTANT_ID"],
-            api_key=os.environ["GT_CLOUD_API_KEY"],
-        ),
-        stream=False,
+    pipeline = Pipeline(
+        tasks=[
+            AssistantTask(
+                assistant_driver=GriptapeCloudAssistantDriver(
+                    assistant_id=os.environ["GT_CLOUD_ASSISTANT_ID"],
+                    api_key=os.environ["GT_CLOUD_API_KEY"],
+                ),
+                stream=False,
+            )
+        ]
     )
 
     with GriptapeCloudStructure():
-        agent.run(prompt)
+        pipeline.run(prompt)
