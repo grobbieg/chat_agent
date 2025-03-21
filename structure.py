@@ -1,5 +1,5 @@
 import argparse
-
+import os
 from dotenv import load_dotenv
 from griptape.configs import Defaults
 from griptape.drivers.memory.conversation.griptape_cloud import GriptapeCloudConversationMemoryDriver
