@@ -19,38 +19,6 @@ from griptape.utils import GriptapeCloudStructure
 
 load_dotenv()
 
-
-def get_knowledge_base_tools(knowledge_base_id: str | None) -> list[BaseTool]:
-    if knowledge_base_id is None:
-        return []
-    engine = RagEngine(
-        retrieval_stage=RetrievalRagStage(
-            retrieval_modules=[
-                VectorStoreRetrievalRagModule(
-                    vector_store_driver=GriptapeCloudVectorStoreDriver(
-                        knowledge_base_id=knowledge_base_id,
-                    )
-                )
-            ]
-        ),
-        response_stage=ResponseRagStage(
-            response_modules=[PromptResponseRagModule()],
-        ),
-    )
-    return [
-        RagTool(
-            description="Contains information about the company and its operations",
-            rag_engine=engine,
-        ),
-    ]
-
-
-def get_rulesets(ruleset_alias: str | None) -> list[Ruleset]:
-    if ruleset_alias is None:
-        return []
-    return [Ruleset(name=ruleset_alias, ruleset_driver=GriptapeCloudRulesetDriver())]
-
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -101,9 +69,7 @@ if __name__ == "__main__":
             assistant_id=os.environ["GT_CLOUD_ASSISTANT_ID"],
             api_key=os.environ["GT_CLOUD_API_KEY"],
         ),
-        rulesets=get_rulesets(ruleset_alias),
-        tools=get_knowledge_base_tools(knowledge_base_id),
-        stream=stream,
+        stream=False,
     )
 
     with GriptapeCloudStructure():
