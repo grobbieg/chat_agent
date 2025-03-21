@@ -5,7 +5,7 @@ from griptape.configs import Defaults
 from griptape.drivers.memory.conversation.griptape_cloud import GriptapeCloudConversationMemoryDriver
 from griptape.drivers.ruleset.griptape_cloud import GriptapeCloudRulesetDriver
 from griptape.drivers.vector.griptape_cloud import GriptapeCloudVectorStoreDriver
-from griptape.drivers.prompt.griptape_cloud import GriptapeCloudAssistantDriver
+from griptape.drivers.assistant.griptape_cloud import GriptapeCloudAssistantDriver
 from griptape.engines.rag import RagEngine
 from griptape.engines.rag.modules import (
     PromptResponseRagModule,
