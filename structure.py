@@ -74,6 +74,7 @@ if __name__ == "__main__":
                     assistant_id=os.environ["GT_CLOUD_ASSISTANT_ID"],
                     api_key=os.environ["GT_CLOUD_API_KEY"],
                     stream=False,
+                    thread_id=thread_id,
                 ),
             ),
         ]
