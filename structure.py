@@ -67,6 +67,7 @@ if __name__ == "__main__":
     )
 
     pipeline = Pipeline(
+        conversation_memory_strategy="per_task",
         tasks=[
             AssistantTask(
                 assistant_driver=GriptapeCloudAssistantDriver(
