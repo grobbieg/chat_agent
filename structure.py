@@ -62,7 +62,7 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     knowledge_base_id = args.knowledge_base_id
-    prompt = "Answer the following question:\n\n" + args.prompt + "\n\nYour response should not include additional actions for the user to fulfil"
+    prompt = "Answer the following question:\n\n" + args.prompt + "\n\nYour response should not include additional information nor actions for the user to fulfil. Respond only using plaintext, do not use any markdown formatting in your response."
     thread_id = args.thread_id
     ruleset_alias = args.ruleset_alias
     stream = args.stream
