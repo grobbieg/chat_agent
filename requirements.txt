@@ -1,2 +1,3 @@
-python-dotenv==1.0.1
-griptape==1.4.0
+dotenv
+pydantic
+griptape @ git+https://github.com/griptape-ai/griptape.git@v1.7.4
